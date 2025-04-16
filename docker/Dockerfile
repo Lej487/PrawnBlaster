@@ -16,7 +16,7 @@ RUN \
     apt install -y cmake gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib build-essential
 
 # Install Pico SDK into a new stage
-FROM base as buildtools
+FROM base AS buildtools
 
 # Install Pico SDK
 RUN \
