@@ -6,6 +6,12 @@ The firmware is compatible with both the Pico 2 board (based on the RP2350 chip)
 **We recommend ensuring you have the [official Pico 2 board](https://www.raspberrypi.com/products/raspberry-pi-pico-2/) with the RP2350 chip for best performance.**
 The [original Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/) (RP2040 chip) supports half the number of instructions and has a slower maximum clock speed.
 
+> [!CAUTION]
+> The RP2350 currently has a hardware design bug that impacts the operation of the internal pull-down resistor on GPIO pins configured as inputs.
+> This may impact the operation of the PrawnBlaster trigger inputs when using the RP2350, depending on the specs of your trigger. For full details, see errata E9 in the [RP2350 datasheet](https://datasheets.raspberrypi.com/rp2350/rp2350-datasheet.pdf).
+> The issue can usually be fixed by providing a suitably sized external pull-down resistor on the relevant input pins.
+> RP2040 based boards do not suffer from this issue (but have reduced timing and storage compared to the RP2350).
+
 ## What is a pseudoclock device?
 A pseudoclock is a device that can be programmed to output a variable frequency clock.
 The entire sequence of clock pulses is programmed into internal memory (over serial) and then executed on command (in order to achieve precise timing).
